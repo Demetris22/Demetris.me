@@ -15,10 +15,10 @@ const workModes = [
     eyebrow: 'React interface',
     title: 'Turning ideas into usable tools',
     description:
-      'I am building practical frontend projects with React, JavaScript, HTML and CSS. FinTrack is the first project I want to present as a polished product instead of a simple class exercise.',
+      'I am building practical frontend projects with React, JavaScript, HTML and CSS. FinTrack can be presented as a private case study, even if the code is not public.',
     tools: ['React', 'JavaScript', 'HTML', 'CSS'],
-    current: 'FinTrack personal finance dashboard',
-    next: 'Add project cards with screenshots, features and GitHub links.',
+    current: 'FinTrack private personal finance React project',
+    next: 'Write a case study with features, design decisions and optional screenshots. No public repo required.',
   },
   {
     id: 'embedded',
@@ -28,8 +28,8 @@ const workModes = [
     description:
       'Embedded projects help me think like an engineer because every decision affects sensors, timing, wiring and physical results.',
     tools: ['Arduino', 'Sensors', 'Actuators', 'Automation'],
-    current: 'Automated garden watering system',
-    next: 'Document the circuit, components, logic and final result.',
+    current: 'Arduino garden watering prototype idea',
+    next: 'Keep this as documentation-pending until there are photos, circuit notes or a working demo.',
   },
   {
     id: 'hardware',
@@ -53,7 +53,7 @@ const skillGroups = [
     description:
       'Languages I use to understand both application logic and lower-level engineering problems.',
     skills: ['C', 'C++', 'JavaScript', 'Some C#'],
-    evidence: [
+    context: [
       'University programming work',
       'Frontend logic in React projects',
       'Systems thinking from C and C++',
@@ -68,9 +68,9 @@ const skillGroups = [
     description:
       'Tools I use to turn ideas into interfaces that feel structured, readable and useful.',
     skills: ['React', 'HTML', 'CSS', 'JavaScript'],
-    evidence: [
+    context: [
       'This portfolio website',
-      'FinTrack personal finance app',
+      'FinTrack private React project',
       'Responsive layout and component structure',
     ],
     nextStep: 'Add project screenshots, richer UI states and better component reuse.',
@@ -83,10 +83,10 @@ const skillGroups = [
     description:
       'Practical hardware/software work where code controls sensors, actuators and real-world behavior.',
     skills: ['Arduino', 'Sensors', 'Actuators', 'Automation logic'],
-    evidence: [
-      'Automated garden watering system',
-      'Sensor-based decisions',
-      'Circuit testing and iteration',
+    context: [
+      'Arduino and embedded systems learning',
+      'Planning sensor-based automation',
+      'Understanding how code affects physical components',
     ],
     nextStep: 'Document circuit diagrams, components and the control logic clearly.',
   },
@@ -98,7 +98,7 @@ const skillGroups = [
     description:
       'Hands-on experience that helps me approach technical problems patiently and systematically.',
     skills: ['Diagnostics', 'Electronics repair', 'PCB inspection', 'Component checks'],
-    evidence: [
+    context: [
       'Hardware support experience',
       'Fault-finding habits',
       'Careful inspection and testing',
@@ -107,11 +107,33 @@ const skillGroups = [
   },
 ]
 
+const projectCards = [
+  {
+    status: 'Private case study',
+    title: 'FinTrack',
+    type: 'React personal finance app',
+    description:
+      'A private React project for tracking personal finance ideas. Since the repo is not public, the portfolio can focus on the problem, interface decisions, features and lessons learned.',
+    stack: ['React', 'JavaScript', 'CSS'],
+    note: 'Good to show without a public GitHub link. Screenshots can be added later if you are comfortable sharing them.',
+  },
+  {
+    status: 'Documentation pending',
+    title: 'Garden watering automation',
+    type: 'Arduino / embedded systems',
+    description:
+      'An embedded systems project idea around soil moisture, automation logic and controlled watering. For now, it should be framed as a prototype direction rather than a fully documented showcase.',
+    stack: ['Arduino', 'Sensors', 'Automation'],
+    note: 'Promote it as a showcase project only after you have a photo, circuit diagram, component list or demo notes.',
+  },
+]
+
 const navItems = [
   { label: 'Home', href: '#home' },
   { label: 'About', href: '#about' },
   { label: 'Workbench', href: '#workbench' },
   { label: 'Skills', href: '#skills' },
+  { label: 'Projects', href: '#projects' },
   { label: 'Contact', href: '#contact' },
 ]
 
@@ -323,11 +345,11 @@ function App() {
                 ))}
               </div>
 
-              <div className="skill-evidence">
+              <div className="skill-context">
                 <div>
                   <h4>Where this shows up</h4>
                   <ul>
-                    {activeSkill.evidence.map((item) => (
+                    {activeSkill.context.map((item) => (
                       <li key={item}>{item}</li>
                     ))}
                   </ul>
@@ -341,15 +363,51 @@ function App() {
           </div>
         </section>
 
+        <section className="projects-section" id="projects" aria-labelledby="projects-title">
+          <div className="section-heading">
+            <p className="eyebrow">Projects</p>
+            <h2 id="projects-title">Show the work honestly.</h2>
+            <p>
+              Not every project needs a public repository. A strong portfolio can
+              still explain what you built, what is private and what still needs
+              documentation.
+            </p>
+          </div>
+
+          <div className="project-grid">
+            {projectCards.map((project) => (
+              <article className="project-card" key={project.title}>
+                <div className="project-card-topline">
+                  <span>{project.status}</span>
+                  <small>{project.type}</small>
+                </div>
+                <h3>{project.title}</h3>
+                <p>{project.description}</p>
+
+                <div className="project-stack" aria-label={`${project.title} stack`}>
+                  {project.stack.map((item) => (
+                    <span key={item}>{item}</span>
+                  ))}
+                </div>
+
+                <div className="project-note">
+                  <strong>How to present it:</strong>
+                  <p>{project.note}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
         <section className="contact-section" id="contact" aria-labelledby="contact-title">
           <div>
             <p className="eyebrow">Next step</p>
-            <h2 id="contact-title">Ready for the Projects section.</h2>
+            <h2 id="contact-title">Ready for Experience and Contact polish.</h2>
           </div>
           <p>
-            The next brick can turn FinTrack and the Arduino garden system into
-            project cards with real evidence: tools used, problems solved,
-            screenshots and links.
+            From here, we can add a practical Experience section and later
+            improve the contact area with GitHub, LinkedIn and a direct email
+            path.
           </p>
           <a className="button button-primary" href="mailto:demetris102933@gmail.com">
             Email Demetris

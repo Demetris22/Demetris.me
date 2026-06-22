@@ -273,6 +273,7 @@ h3 {
 .about-section,
 .workbench-section,
 .skills-section,
+.projects-section,
 .contact-section {
   padding: 76px 0;
   border-top: 1px solid var(--line);
@@ -642,21 +643,21 @@ h3 {
   font-weight: 900;
 }
 
-.skill-evidence {
+.skill-context {
   display: grid;
   grid-template-columns: 1fr 0.85fr;
   gap: 16px;
   margin-top: 30px;
 }
 
-.skill-evidence > div {
+.skill-context > div {
   padding: 22px;
   border: 1px solid rgba(226, 232, 240, 0.95);
   border-radius: 20px;
   background: #ffffff;
 }
 
-.skill-evidence h4 {
+.skill-context h4 {
   margin: 0 0 14px;
   color: var(--ink);
   font-size: 0.9rem;
@@ -664,7 +665,7 @@ h3 {
   text-transform: uppercase;
 }
 
-.skill-evidence ul {
+.skill-context ul {
   display: grid;
   gap: 10px;
   padding: 0;
@@ -672,14 +673,14 @@ h3 {
   list-style: none;
 }
 
-.skill-evidence li {
+.skill-context li {
   position: relative;
   padding-left: 20px;
   color: var(--body);
   line-height: 1.6;
 }
 
-.skill-evidence li::before {
+.skill-context li::before {
   content: "";
   position: absolute;
   top: 0.7em;
@@ -699,6 +700,104 @@ h3 {
   margin: 0;
   color: var(--body);
   line-height: 1.7;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.project-card {
+  display: grid;
+  align-content: start;
+  gap: 22px;
+  min-height: 430px;
+  padding: 30px;
+  border: 1px solid var(--line);
+  border-radius: 26px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.82)),
+    radial-gradient(circle at top right, rgba(15, 118, 110, 0.1), transparent 34%);
+  box-shadow: 0 24px 70px rgba(15, 23, 42, 0.09);
+}
+
+.project-card-topline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.project-card-topline span {
+  display: inline-flex;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(15, 118, 110, 0.09);
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.project-card-topline small {
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.project-card h3 {
+  margin-bottom: 0;
+  color: var(--ink);
+  font-size: clamp(1.8rem, 3vw, 2.7rem);
+  line-height: 1.03;
+}
+
+.project-card > p {
+  margin-bottom: 0;
+  color: var(--body);
+  font-size: 1.02rem;
+  line-height: 1.76;
+}
+
+.project-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.project-stack span {
+  display: inline-flex;
+  padding: 9px 12px;
+  border: 1px solid rgba(15, 118, 110, 0.16);
+  border-radius: 999px;
+  background: rgba(15, 118, 110, 0.06);
+  color: var(--ink);
+  font-size: 0.86rem;
+  font-weight: 900;
+}
+
+.project-note {
+  margin-top: auto;
+  padding: 18px;
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  border-radius: 18px;
+  background: #ffffff;
+}
+
+.project-note strong {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--ink);
+  font-size: 0.86rem;
+  text-transform: uppercase;
+}
+
+.project-note p {
+  margin: 0;
+  color: var(--body);
+  line-height: 1.65;
 }
 
 .contact-section {
@@ -752,6 +851,7 @@ h3 {
   .profile-layout,
   .workbench,
   .skills-lab,
+  .project-grid,
   .contact-section {
     grid-template-columns: 1fr;
   }
@@ -791,7 +891,7 @@ h3 {
   }
 
   .panel-footer,
-  .skill-evidence {
+  .skill-context {
     grid-template-columns: 1fr;
   }
 
@@ -803,6 +903,7 @@ h3 {
   .about-section,
   .workbench-section,
   .skills-section,
+  .projects-section,
   .contact-section {
     padding: 54px 0;
   }
