@@ -30,6 +30,15 @@ function About() {
             ideas from class and turning them into projects I can actually run
             and debug.
           </p>
+
+          <div className="about-focus">
+            <p className="about-focus-label">What I'm into</p>
+            <ul>
+              <li>Front-end development with React</li>
+              <li>Embedded systems and Arduino</li>
+              <li>Electronics and hands-on hardware</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
