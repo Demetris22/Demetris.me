@@ -3,4 +3,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://demetris-me.vercel.app/sitemap.xml
+Sitemap: https://www.demetr1s.me/sitemap.xml
