@@ -21,6 +21,7 @@
   --focus-ring: rgba(37, 99, 235, 0.75);
 
   font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 500;
   color: var(--body);
   background: var(--bg);
   font-synthesis: none;

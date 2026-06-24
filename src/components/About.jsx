@@ -8,11 +8,15 @@ function About() {
 
       <div className="profile-layout">
         <div className="profile-card" data-reveal data-glow>
-          <div
-            className="photo-placeholder"
-            aria-label="Future profile photo placeholder"
-          >
-            <span>DD</span>
+          <div className="photo-placeholder">
+            <img
+              src="/profile.jpg"
+              alt="Demetris Demetriou"
+              width="640"
+              height="640"
+              loading="lazy"
+              decoding="async"
+            />
           </div>
           <div>
             <p className="profile-card-label">Profile snapshot</p>

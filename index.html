@@ -3,13 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <script>
-      // Apply the saved/preferred theme before paint to avoid a flash.
+      // Apply the saved theme before paint to avoid a flash.
+      // Defaults to light; only goes dark if the visitor chose it previously.
       (function () {
         try {
           var stored = localStorage.getItem('theme');
-          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-          var theme = stored || (prefersDark ? 'dark' : 'light');
-          document.documentElement.setAttribute('data-theme', theme);
+          document.documentElement.setAttribute('data-theme', stored || 'light');
         } catch (e) {}
       })();
     </script>
@@ -66,7 +65,10 @@
           "@type": "PostalAddress",
           "addressCountry": "CY"
         },
-        "sameAs": ["https://github.com/Demetris22"],
+        "sameAs": [
+          "https://github.com/Demetris22",
+          "https://www.linkedin.com/in/demetris-demetriou-a59a0124a"
+        ],
         "knowsAbout": [
           "React",
           "JavaScript",

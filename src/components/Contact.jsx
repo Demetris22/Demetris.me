@@ -51,6 +51,14 @@ function Contact() {
           <strong>github.com/Demetris22</strong>
         </a>
         <a
+          href="https://www.linkedin.com/in/demetris-demetriou-a59a0124a"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <span>LinkedIn</span>
+          <strong>linkedin.com/in/demetris-demetriou</strong>
+        </a>
+        <a
           href="https://github.com/Demetris22/Demetris.me"
           target="_blank"
           rel="noreferrer"
