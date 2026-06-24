@@ -17,8 +17,8 @@ function Workbench() {
         <p className="eyebrow">Interactive workbench</p>
         <h2 id="workbench-title">Three ways I build.</h2>
         <p>
-          Instead of a plain CV, this section shows how my skills connect across
-          web apps, embedded systems, and hands-on hardware experience.
+          The same approach applied three ways — web, embedded, and hands-on
+          hardware.
         </p>
       </div>
 

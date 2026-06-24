@@ -33,10 +33,7 @@ function Contact() {
       <div className="contact-copy" data-reveal>
         <p className="eyebrow">Contact</p>
         <h2 id="contact-title">Let&apos;s connect.</h2>
-        <p>
-          Open to learning opportunities, collaboration, and feedback on
-          engineering-focused projects.
-        </p>
+        <p>Always glad to talk projects, internships, or feedback.</p>
 
         <div className="contact-availability">
           <span className="status-dot" aria-hidden="true" />

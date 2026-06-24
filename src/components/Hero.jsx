@@ -20,9 +20,8 @@ function Hero() {
         <p className="eyebrow">Computer Engineering student from Cyprus</p>
         <h1>Building practical software and embedded systems.</h1>
         <p className="hero-intro">
-          I'm Demetris, a Computer Engineering student from Cyprus, focused on
-          React, embedded systems, electronics, and building practical
-          technology projects.
+          I'm Demetris — I build practical projects, from React interfaces to
+          Arduino-based automation.
         </p>
 
         <p className="hero-rotator">
