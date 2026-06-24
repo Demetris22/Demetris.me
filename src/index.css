@@ -18,6 +18,7 @@
   /* Floating-header height — measured + kept in sync by JS (App.jsx).
      Fallback covers first paint before the effect runs. */
   --header-height: 66px;
+  --focus-ring: rgba(37, 99, 235, 0.75);
 
   font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   color: var(--body);
@@ -42,6 +43,7 @@
   --surface-glass: rgba(19, 28, 46, 0.8);
   --shadow-soft: 0 18px 48px rgba(0, 0, 0, 0.5);
   --shadow-card: 0 24px 70px rgba(0, 0, 0, 0.6);
+  --focus-ring: rgba(94, 234, 212, 0.85);
   color-scheme: dark;
 }
 
@@ -161,7 +163,7 @@ a {
 
 a:focus-visible,
 button:focus-visible {
-  outline: 3px solid rgba(37, 99, 235, 0.28);
+  outline: 3px solid var(--focus-ring, rgba(37, 99, 235, 0.75));
   outline-offset: 3px;
 }
 
