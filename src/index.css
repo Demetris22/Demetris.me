@@ -7,6 +7,17 @@
   --line: #e4e7ec;
   --accent: #0f766e;
   --accent-blue: #2563eb;
+  --accent-soft: rgba(15, 118, 110, 0.1);
+  --accent-blue-soft: rgba(37, 99, 235, 0.1);
+  --surface-glass: rgba(255, 255, 255, 0.78);
+  --shadow-soft: 0 18px 48px rgba(15, 23, 42, 0.08);
+  --shadow-card: 0 24px 70px rgba(15, 23, 42, 0.11);
+  /* Default glow centre — overridden per-element by JS on [data-glow] */
+  --glow-x: 50%;
+  --glow-y: 0%;
+  /* Floating-header height — measured + kept in sync by JS (App.jsx).
+     Fallback covers first paint before the effect runs. */
+  --header-height: 66px;
 
   font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   color: var(--body);
@@ -17,6 +28,23 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+[data-theme="dark"] {
+  --bg: #0a0f1a;
+  --surface: #131c2e;
+  --ink: #f1f5f9;
+  --body: #c2ccdb;
+  --muted: #93a1b5;
+  --line: rgba(255, 255, 255, 0.12);
+  --accent: #2dd4bf;
+  --accent-blue: #60a5fa;
+  --accent-soft: rgba(45, 212, 191, 0.14);
+  --accent-blue-soft: rgba(96, 165, 250, 0.14);
+  --surface-glass: rgba(19, 28, 46, 0.8);
+  --shadow-soft: 0 18px 48px rgba(0, 0, 0, 0.5);
+  --shadow-card: 0 24px 70px rgba(0, 0, 0, 0.6);
+  color-scheme: dark;
+}
+
 *,
 *::before,
 *::after {
@@ -25,9 +53,47 @@
 
 html {
   scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(15, 118, 110, 0.4) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 3px solid transparent;
+  border-radius: 999px;
+  background: rgba(15, 118, 110, 0.35);
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(15, 118, 110, 0.55);
+  background-clip: content-box;
+}
+
+[data-theme="dark"] {
+  scrollbar-color: rgba(45, 212, 191, 0.45) transparent;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  background: rgba(45, 212, 191, 0.32);
+  background-clip: content-box;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+  background: rgba(45, 212, 191, 0.5);
+  background-clip: content-box;
 }
 
 body {
+  position: relative;
   min-width: 320px;
   min-height: 100vh;
   margin: 0;
@@ -36,6 +102,45 @@ body {
     radial-gradient(circle at top left, rgba(15, 118, 110, 0.1), transparent 34%),
     radial-gradient(circle at top right, rgba(37, 99, 235, 0.08), transparent 32%),
     var(--bg);
+  overflow-x: hidden;
+}
+
+[data-theme="dark"] body {
+  background:
+    linear-gradient(180deg, rgba(10, 15, 26, 0.96), rgba(13, 19, 33, 0.9)),
+    radial-gradient(circle at top left, rgba(45, 212, 191, 0.12), transparent 34%),
+    radial-gradient(circle at top right, rgba(96, 165, 250, 0.1), transparent 32%),
+    var(--bg);
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  z-index: 0;
+  pointer-events: none;
+  border-radius: 999px;
+  opacity: 0.56;
+  filter: blur(56px);
+  transform: translate3d(0, 0, 0);
+  animation: ambient-drift 18s ease-in-out infinite alternate;
+}
+
+body::before {
+  top: 8vh;
+  left: -12vw;
+  width: 36vw;
+  height: 36vw;
+  background: rgba(15, 118, 110, 0.12);
+}
+
+body::after {
+  right: -10vw;
+  bottom: 10vh;
+  width: 34vw;
+  height: 34vw;
+  background: rgba(37, 99, 235, 0.1);
+  animation-delay: -7s;
 }
 
 body,
@@ -49,11 +154,24 @@ a {
   color: inherit;
 }
 
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid rgba(37, 99, 235, 0.28);
+  outline-offset: 3px;
+}
+
 img {
   max-width: 100%;
 }
 
 #root {
+  position: relative;
+  z-index: 1;
   min-height: 100vh;
 }
 
@@ -62,7 +180,26 @@ img {
   color: var(--ink);
 }
 
+[data-theme="dark"] ::selection {
+  background: rgba(45, 212, 191, 0.3);
+  color: #ffffff;
+}
+
+@keyframes ambient-drift {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(4vw, -3vh, 0) scale(1.08);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
+  body::before,
+  body::after {
+    animation: none !important;
+  }
+
   *,
   *::before,
   *::after {

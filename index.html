@@ -2,13 +2,82 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <script>
+      // Apply the saved/preferred theme before paint to avoid a flash.
+      (function () {
+        try {
+          var stored = localStorage.getItem('theme');
+          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          var theme = stored || (prefersDark ? 'dark' : 'light');
+          document.documentElement.setAttribute('data-theme', theme);
+        } catch (e) {}
+      })();
+    </script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0f766e" />
+    <meta name="color-scheme" content="light dark" />
     <meta
       name="description"
-      content="Portfolio website for Demetris Demetriou, a Computer Engineering student from Cyprus."
+      content="Portfolio website for Demetris Demetriou, a Computer Engineering student from Cyprus building React, embedded systems, and electronics projects."
     />
     <title>Demetris Demetriou | Computer Engineering Portfolio</title>
+
+    <!--
+      Social link previews (Open Graph + Twitter).
+      TODO: replace https://example.com with your real deployed URL once live,
+      and (optionally) swap public/og-image.png for a 1200x630 image.
+    -->
+    <link rel="canonical" href="https://example.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Demetris Demetriou" />
+    <meta
+      property="og:title"
+      content="Demetris Demetriou | Computer Engineering Portfolio"
+    />
+    <meta
+      property="og:description"
+      content="Computer Engineering student from Cyprus building practical software and embedded systems with React, C/C++, and Arduino."
+    />
+    <meta property="og:url" content="https://example.com/" />
+    <meta property="og:image" content="https://example.com/og-image.png" />
+    <meta property="og:image:alt" content="Demetris Demetriou — Computer Engineering portfolio" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Demetris Demetriou | Computer Engineering Portfolio"
+    />
+    <meta
+      name="twitter:description"
+      content="Computer Engineering student from Cyprus building practical software and embedded systems with React, C/C++, and Arduino."
+    />
+    <meta name="twitter:image" content="https://example.com/og-image.png" />
+
+    <!-- Structured data: helps search engines understand who this is. -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Demetris Demetriou",
+        "url": "https://example.com/",
+        "jobTitle": "Computer Engineering Student",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "CY"
+        },
+        "sameAs": ["https://github.com/Demetris22"],
+        "knowsAbout": [
+          "React",
+          "JavaScript",
+          "C",
+          "C++",
+          "Embedded Systems",
+          "Arduino",
+          "Electronics"
+        ]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
