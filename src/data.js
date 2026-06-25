@@ -95,20 +95,20 @@ export const projectCards = [
     note: 'An active public project I keep improving with stronger details and updated experience.',
   },
   {
-    id: 'watering',
+    id: 'uart',
     status: 'Embedded systems project',
-    title: 'Arduino Automated Watering System',
+    title: 'UART Serial Command Interface',
     type: 'Arduino / embedded systems',
     description:
-      'An Arduino project that waters plants automatically when soil moisture drops below a set level.',
-    stack: ['Arduino', 'C/C++', 'Soil moisture sensor', 'Relay module', 'Water pump'],
+      'A command-line interface running on the Arduino Uno R4 WiFi — type text commands over serial to control three LEDs and read a potentiometer, with structured key-value responses.',
+    stack: ['Arduino Uno R4 WiFi', 'C/C++', 'UART'],
     demonstrates: [
-      'Sensor input and microcontroller logic',
-      'Relay control and basic circuit connections',
-      'Practical problem solving with hardware and software',
+      'UART serial communication and command parsing at 9600 baud',
+      'Fixed-size input buffer with overflow protection',
+      'Structured command handlers and key-value response format',
     ],
-    availability: ['Documentation coming soon'],
-    note: 'A school Arduino project — I worked on the logic, wiring, sensor input, and pump control.',
+    availability: ['CE310 coursework'],
+    note: '6th semester lab project for the Embedded Systems course. Implemented 10+ commands (SET, STATUS, READADC, RESET, HELP) — all 14 test cases passed including invalid command handling.',
   },
 ]
 
@@ -135,13 +135,17 @@ export const experienceItems = [
     label: 'University',
     status: 'Computer Engineering studies',
     title: 'Building engineering foundations',
+    institution: 'European University Cyprus',
+    date: '2021 – 2026',
+    location: 'Nicosia, Cyprus',
     description:
-      'My university work ties programming, systems thinking, and hardware into one path.',
+      'Computer Engineering at European University Cyprus — six semesters covering programming, digital systems, hardware, and embedded systems lab work.',
     highlights: [
-      'Programming and problem solving',
-      'Hardware and software fundamentals',
+      'Programming and problem solving across multiple languages',
+      'Embedded systems, digital systems, and microcontroller lab work',
+      'Lab projects that put coursework into practice on real hardware',
     ],
-    tools: ['C', 'C++', 'Digital systems', 'Microcontrollers'],
+    tools: ['C', 'C++', 'Arduino', 'Digital systems', 'Microcontrollers', 'Embedded systems'],
   },
   {
     id: 'repair',

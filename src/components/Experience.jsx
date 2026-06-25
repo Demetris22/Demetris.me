@@ -81,11 +81,11 @@ function Experience() {
             >
               <p className="panel-eyebrow">{item.status}</p>
               <h3>{item.title}</h3>
-              {'company' in item && (
+              {('company' in item || 'institution' in item) && (
                 <dl className="experience-meta" aria-label="Experience details">
                   <div>
-                    <dt>Company</dt>
-                    <dd>{item.company}</dd>
+                    <dt>{'institution' in item ? 'Institution' : 'Company'}</dt>
+                    <dd>{item.institution ?? item.company}</dd>
                   </div>
                   <div>
                     <dt>Date</dt>
