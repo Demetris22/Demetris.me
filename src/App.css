@@ -739,20 +739,7 @@ h3 {
 .projects-section > .section-heading::before,
 .experience-section > .section-heading::before,
 .contact-section > .section-heading::before {
-  position: absolute;
-  top: -0.3em;
-  left: -0.04em;
-  font-size: clamp(5rem, 13vw, 9.5rem);
-  font-weight: 900;
-  letter-spacing: -0.04em;
-  line-height: 1;
-  color: rgba(15, 23, 42, 0.055);
-  pointer-events: none;
-  user-select: none;
-  white-space: nowrap;
-  z-index: 0;
-  transform: translate3d(var(--ghost-shift, 0px), 0, 0);
-  will-change: transform;
+  display: none;
 }
 
 /* Dark mode: ink-colour watermark disappears on a dark bg — use a light tint instead. */
