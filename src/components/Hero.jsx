@@ -18,10 +18,10 @@ function Hero() {
     <section className="hero-section" id="home">
       <div className="hero-copy">
         <p className="eyebrow">Computer Engineering student from Cyprus</p>
-        <h1>Building practical software and embedded systems.</h1>
+        <h1>I build both sides — the code and the circuit.</h1>
         <p className="hero-intro">
-          I'm Demetris — I build practical projects, from React interfaces to
-          Arduino-based automation.
+          Hi, i'm Demetris — I build practical projects, from React interfaces
+          to Arduino-based automation.
         </p>
 
         <p className="hero-rotator">

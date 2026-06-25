@@ -2272,6 +2272,12 @@ h3 {
     width: 100%;
     justify-content: flex-start;
     overflow-x: auto;
+    /* Nav scrolls horizontally on tablet — hide the scrollbar track. */
+    scrollbar-width: none;
+  }
+
+  .site-nav::-webkit-scrollbar {
+    display: none;
   }
 
   .hero-section {
@@ -2393,6 +2399,48 @@ h3 {
   .visual-topline {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  /* 3 columns is too cramped at 375px — drop to 2. */
+  .visual-stack {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* Ghost watermark: soften the minimum so it doesn't overpower the copy
+     on very narrow viewports. */
+  .about-section > .section-heading::before,
+  .workbench-section > .section-heading::before,
+  .projects-section > .section-heading::before,
+  .experience-section > .section-heading::before,
+  .contact-section > .section-heading::before {
+    font-size: clamp(3rem, 12vw, 5rem);
+  }
+
+  /* Tighten stacked hero — less gap + shorter bottom pad on small screens. */
+  .hero-section {
+    gap: 24px;
+    padding-bottom: 50px;
+  }
+
+  .hero-rotator {
+    margin-top: 18px;
+  }
+
+  .hero-actions {
+    margin-top: 22px;
+    gap: 10px;
+  }
+
+  /* Give contact link text more room — arrow only needs 28px clearance. */
+  .contact-links a,
+  .copy-email-button {
+    padding: 14px 28px 14px 16px;
+  }
+
+  /* Stack footer copy on very small screens. */
+  .site-footer {
+    flex-direction: column;
+    gap: 6px;
   }
 
   .about-section,
