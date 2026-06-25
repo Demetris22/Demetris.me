@@ -1456,12 +1456,46 @@ h3 {
   overflow: hidden;
 }
 
+.panel-title-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
 .project-detail-panel h3 {
   max-width: 720px;
-  margin-bottom: 14px;
+  margin-bottom: 0;
   color: #ffffff;
   font-size: clamp(1.6rem, 2.6vw, 2.5rem);
   line-height: 1.04;
+}
+
+.panel-live-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  flex-shrink: 0;
+  padding: 4px 11px;
+  border: 1px solid rgba(142, 228, 213, 0.4);
+  border-radius: 999px;
+  background: rgba(142, 228, 213, 0.1);
+  color: #bff5eb;
+  font-size: 0.75rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.panel-live-badge::before {
+  content: "";
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: live-pulse 2s ease-in-out infinite;
 }
 
 .project-detail-panel > p:not(.panel-eyebrow) {
@@ -2316,7 +2350,8 @@ h3 {
 @media (prefers-reduced-motion: reduce) {
   .hero-visual,
   .status-dot,
-  .project-card-live::before {
+  .project-card-live::before,
+  .panel-live-badge::before {
     animation: none !important;
   }
 

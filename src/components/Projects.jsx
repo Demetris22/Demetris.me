@@ -93,7 +93,12 @@ function Projects() {
               key={project.id}
             >
               <p className="panel-eyebrow">{project.status}</p>
-              <h3>{project.title}</h3>
+              <div className="panel-title-row">
+                <h3>{project.title}</h3>
+                {project.liveUrl && (
+                  <span className="panel-live-badge">Live</span>
+                )}
+              </div>
               <p>{project.description}</p>
 
               <div
