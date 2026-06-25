@@ -45,7 +45,17 @@ function Experience() {
               aria-selected={activeExperienceId === item.id}
               aria-controls={`experience-panel-${item.id}`}
               tabIndex={activeExperienceId === item.id ? 0 : -1}
-              onClick={() => setActiveExperienceId(item.id)}
+              onClick={() => {
+                setActiveExperienceId(item.id)
+                if (window.innerWidth <= 940) {
+                  setTimeout(() => {
+                    const el = document.querySelector('.experience-panels')
+                    if (!el) return
+                    const headerH = document.querySelector('.site-header')?.offsetHeight ?? 80
+                    window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - headerH - 16, behavior: 'smooth' })
+                  }, 50)
+                }
+              }}
               onKeyDown={(event) =>
                 handleTabKeyDown(
                   event,

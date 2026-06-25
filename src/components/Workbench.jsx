@@ -40,7 +40,17 @@ function Workbench() {
               aria-selected={activeModeId === mode.id}
               aria-controls={`workbench-panel-${mode.id}`}
               tabIndex={activeModeId === mode.id ? 0 : -1}
-              onClick={() => setActiveModeId(mode.id)}
+              onClick={() => {
+                setActiveModeId(mode.id)
+                if (window.innerWidth <= 940) {
+                  setTimeout(() => {
+                    const el = document.querySelector('.mode-panels')
+                    if (!el) return
+                    const headerH = document.querySelector('.site-header')?.offsetHeight ?? 80
+                    window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - headerH - 16, behavior: 'smooth' })
+                  }, 50)
+                }
+              }}
               onKeyDown={(event) =>
                 handleTabKeyDown(
                   event,

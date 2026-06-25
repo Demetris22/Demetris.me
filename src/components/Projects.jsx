@@ -40,7 +40,17 @@ function Projects() {
               aria-selected={activeProjectId === project.id}
               aria-controls={`projects-panel-${project.id}`}
               tabIndex={activeProjectId === project.id ? 0 : -1}
-              onClick={() => setActiveProjectId(project.id)}
+              onClick={() => {
+                setActiveProjectId(project.id)
+                if (window.innerWidth <= 940) {
+                  setTimeout(() => {
+                    const el = document.querySelector('.project-detail-panels')
+                    if (!el) return
+                    const headerH = document.querySelector('.site-header')?.offsetHeight ?? 80
+                    window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - headerH - 16, behavior: 'smooth' })
+                  }, 50)
+                }
+              }}
               onKeyDown={(event) =>
                 handleTabKeyDown(
                   event,

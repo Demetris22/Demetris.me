@@ -1724,10 +1724,13 @@ h3 {
 }
 
 .experience-tab small {
+  overflow: hidden;
   color: var(--muted);
   font-size: 0.8rem;
   font-weight: 800;
   text-transform: uppercase;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .experience-panel {
