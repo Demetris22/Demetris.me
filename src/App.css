@@ -2383,7 +2383,6 @@ h3 {
 }
 
 @media (max-width: 940px) {
-  .site-header,
   .site-footer {
     align-items: flex-start;
     flex-direction: column;
@@ -2391,7 +2390,14 @@ h3 {
 
   .site-header {
     top: 8px;
-    border-radius: 24px;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 999px;
+    padding: 6px 6px 6px 8px;
+  }
+
+  .brand {
+    display: none;
   }
 
   .header-actions {
@@ -2402,12 +2408,15 @@ h3 {
     width: 100%;
     justify-content: flex-start;
     overflow-x: auto;
-    /* Nav scrolls horizontally on tablet — hide the scrollbar track. */
     scrollbar-width: none;
   }
 
   .site-nav::-webkit-scrollbar {
     display: none;
+  }
+
+  .nav-scroll-wrap {
+    overflow: hidden;
   }
 
   .nav-scroll-wrap::after {
@@ -2416,10 +2425,10 @@ h3 {
     top: 0;
     right: 0;
     bottom: 0;
-    width: 44px;
-    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.95));
-    border-radius: 0 999px 999px 0;
+    width: 48px;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.98));
     pointer-events: none;
+    z-index: 1;
   }
 
   .hero-section {
@@ -2475,8 +2484,8 @@ h3 {
 
   .site-header {
     margin-top: 8px;
-    padding: 10px;
-    border-radius: 22px;
+    padding: 5px 5px 5px 7px;
+    border-radius: 999px;
   }
 
   .site-nav {
