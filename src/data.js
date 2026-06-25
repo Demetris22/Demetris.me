@@ -44,8 +44,8 @@ export const workModes = [
     description:
       'Where code meets electronics: using sensors and microcontrollers to control real-world devices.',
     tools: ['Arduino', 'C/C++', 'Sensors', 'Microcontrollers', 'Automation'],
-    example: 'Arduino automated watering system',
-    shows: 'Sensor input, microcontroller logic, and basic circuit work.',
+    example: 'UART Serial Command Interface for device control',
+    shows: 'Serial communication, command parsing, and microcontroller I/O.',
   },
   {
     id: 'hardware',
@@ -92,6 +92,7 @@ export const projectCards = [
       'Turning a simple CV into a more personal engineering site',
     ],
     availability: ['Public portfolio repo'],
+    liveUrl: 'https://www.demetr1s.me/',
     note: 'An active public project I keep improving with stronger details and updated experience.',
   },
   {
