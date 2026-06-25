@@ -96,7 +96,13 @@ function Projects() {
               <div className="panel-title-row">
                 <h3>{project.title}</h3>
                 {project.liveUrl && (
-                  <span className="panel-live-badge">Live</span>
+                  <a
+                    className="panel-live-badge"
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${project.title} live demo`}
+                  >Live</a>
                 )}
               </div>
               <p>{project.description}</p>
@@ -118,17 +124,6 @@ function Projects() {
                   <span key={item}>{item}</span>
                 ))}
               </div>
-
-              {project.liveUrl && (
-                <a
-                  className="panel-live-link"
-                  href={project.liveUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  View live demo ↗
-                </a>
-              )}
 
               <div className="project-detail-grid">
                 <div>

@@ -1486,6 +1486,15 @@ h3 {
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 0.04em;
+  text-decoration: none;
+  transition: border-color 160ms ease, background 160ms ease, transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.panel-live-badge:hover,
+.panel-live-badge:focus-visible {
+  border-color: rgba(142, 228, 213, 0.7);
+  background: rgba(142, 228, 213, 0.18);
+  transform: translateY(-2px);
 }
 
 .panel-live-badge::before {
