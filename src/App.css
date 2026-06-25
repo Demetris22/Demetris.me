@@ -734,19 +734,29 @@ h3 {
 .experience-section > .section-heading::before,
 .contact-section > .section-heading::before {
   position: absolute;
-  top: -0.25em;
+  /* Pushed up so only the letter-feet sit in the eyebrow zone — the h2 is clear. */
+  top: -0.8em;
   left: -0.04em;
   font-size: clamp(5rem, 13vw, 9.5rem);
   font-weight: 900;
   letter-spacing: -0.04em;
   line-height: 1;
-  color: rgba(15, 23, 42, 0.042);
+  color: rgba(15, 23, 42, 0.03);
   pointer-events: none;
   user-select: none;
   white-space: nowrap;
   z-index: 0;
   transform: translate3d(var(--ghost-shift, 0px), 0, 0);
   will-change: transform;
+}
+
+/* Dark mode: ink-colour watermark disappears on a dark bg — use a light tint instead. */
+[data-theme="dark"] .about-section > .section-heading::before,
+[data-theme="dark"] .workbench-section > .section-heading::before,
+[data-theme="dark"] .projects-section > .section-heading::before,
+[data-theme="dark"] .experience-section > .section-heading::before,
+[data-theme="dark"] .contact-section > .section-heading::before {
+  color: rgba(255, 255, 255, 0.05);
 }
 
 .section-heading p:not(.eyebrow) {

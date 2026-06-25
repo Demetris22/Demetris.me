@@ -17,7 +17,7 @@ function Projects() {
       <div className="section-heading" data-reveal>
         <p className="eyebrow">Projects</p>
         <h2 id="projects-title">Show the work honestly.</h2>
-        <p>Some public, some private, some still being documented — shown honestly.</p>
+        <p>Some public, some private, some still being documented.</p>
       </div>
 
       <div className="project-showcase">

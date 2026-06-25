@@ -74,7 +74,7 @@ export const projectCards = [
       'Form handling and dashboard-style UI',
       'Practical frontend problem solving in a real project',
     ],
-    availability: ['Private case study', 'Screenshots coming soon'],
+    availability: ['Screenshots coming soon'],
     note: 'Core dashboard in progress; charts, budgets, savings goals, auth, and a backend are planned.',
   },
   {
@@ -90,7 +90,7 @@ export const projectCards = [
       'Interactive sections for projects and experience',
       'Turning a simple CV into a more personal engineering site',
     ],
-    availability: ['Active project', 'Public portfolio repo'],
+    availability: ['Public portfolio repo'],
     note: 'An active public project I keep improving with stronger details and updated experience.',
   },
   {
@@ -106,7 +106,7 @@ export const projectCards = [
       'Relay control and basic circuit connections',
       'Practical problem solving with hardware and software',
     ],
-    availability: ['Embedded systems project', 'Documentation coming soon'],
+    availability: ['Documentation coming soon'],
     note: 'A school Arduino project — I worked on the logic, wiring, sensor input, and pump control.',
   },
 ]
