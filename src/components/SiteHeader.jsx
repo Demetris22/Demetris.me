@@ -20,29 +20,31 @@ function SiteHeader({ activeSection, onSelectSection, theme, onToggleTheme }) {
       </a>
 
       <div className="header-actions">
-        <nav className="site-nav" aria-label="Primary navigation">
-          {navItems.map((item) => {
-            const sectionId = item.href.slice(1)
-            const linkClassName = [
-              activeSection === sectionId ? 'active' : '',
-              item.href === '#contact' ? 'nav-contact' : '',
-            ]
-              .filter(Boolean)
-              .join(' ')
+        <div className="nav-scroll-wrap">
+          <nav className="site-nav" aria-label="Primary navigation">
+            {navItems.map((item) => {
+              const sectionId = item.href.slice(1)
+              const linkClassName = [
+                activeSection === sectionId ? 'active' : '',
+                item.href === '#contact' ? 'nav-contact' : '',
+              ]
+                .filter(Boolean)
+                .join(' ')
 
-            return (
-              <a
-                className={linkClassName}
-                key={item.href}
-                href={item.href}
-                aria-current={activeSection === sectionId ? 'page' : undefined}
-                onClick={() => onSelectSection(sectionId)}
-              >
-                {item.label}
-              </a>
-            )
-          })}
-        </nav>
+              return (
+                <a
+                  className={linkClassName}
+                  key={item.href}
+                  href={item.href}
+                  aria-current={activeSection === sectionId ? 'page' : undefined}
+                  onClick={() => onSelectSection(sectionId)}
+                >
+                  {item.label}
+                </a>
+              )
+            })}
+          </nav>
+        </div>
 
         <button
           className="theme-toggle"
