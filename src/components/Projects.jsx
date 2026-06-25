@@ -65,7 +65,12 @@ function Projects() {
                   <span key={item}>{item}</span>
                 ))}
               </span>
-              <span className="project-card-action">View details</span>
+              <span className="project-card-footer">
+                <span className="project-card-action">View details</span>
+                {project.liveUrl && (
+                  <span className="project-card-live" aria-label="Live demo available">Live</span>
+                )}
+              </span>
             </button>
           ))}
         </div>
