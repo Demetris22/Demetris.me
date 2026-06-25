@@ -74,7 +74,8 @@ export const projectCards = [
       'Form handling and dashboard-style UI',
       'Practical frontend problem solving in a real project',
     ],
-    availability: ['Screenshots coming soon'],
+    availability: ['Frontend preview'],
+    liveUrl: 'https://fintrack-beige-eta.vercel.app/',
     note: 'Core dashboard in progress; charts, budgets, savings goals, auth, and a backend are planned.',
   },
   {

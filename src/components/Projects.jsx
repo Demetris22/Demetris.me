@@ -109,6 +109,17 @@ function Projects() {
                 ))}
               </div>
 
+              {project.liveUrl && (
+                <a
+                  className="panel-live-link"
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  View live demo ↗
+                </a>
+              )}
+
               <div className="project-detail-grid">
                 <div>
                   <h4>What it demonstrates</h4>
