@@ -740,14 +740,13 @@ h3 {
 .experience-section > .section-heading::before,
 .contact-section > .section-heading::before {
   position: absolute;
-  /* Pushed up so only the letter-feet sit in the eyebrow zone — the h2 is clear. */
-  top: -0.8em;
+  top: -0.3em;
   left: -0.04em;
   font-size: clamp(5rem, 13vw, 9.5rem);
   font-weight: 900;
   letter-spacing: -0.04em;
   line-height: 1;
-  color: rgba(15, 23, 42, 0.03);
+  color: rgba(15, 23, 42, 0.055);
   pointer-events: none;
   user-select: none;
   white-space: nowrap;
@@ -762,7 +761,7 @@ h3 {
 [data-theme="dark"] .projects-section > .section-heading::before,
 [data-theme="dark"] .experience-section > .section-heading::before,
 [data-theme="dark"] .contact-section > .section-heading::before {
-  color: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.08);
 }
 
 .section-heading p:not(.eyebrow) {
@@ -2897,5 +2896,5 @@ h3 {
 [data-theme="dark"] .projects-section > .section-heading::before,
 [data-theme="dark"] .experience-section > .section-heading::before,
 [data-theme="dark"] .contact-section > .section-heading::before {
-  color: rgba(255, 255, 255, 0.045);
+  color: rgba(255, 255, 255, 0.08);
 }
