@@ -31,13 +31,14 @@ function Experience() {
           role="tablist"
           aria-label="Experience areas"
           aria-orientation="vertical"
-          data-reveal
         >
-          {experienceItems.map((item) => (
+          {experienceItems.map((item, index) => (
             <button
               className={`experience-tab ${
                 activeExperienceId === item.id ? 'active' : ''
               }`}
+              data-reveal
+              style={{ '--reveal-delay': `${index * 90}ms` }}
               id={`experience-tab-${item.id}`}
               key={item.id}
               type="button"

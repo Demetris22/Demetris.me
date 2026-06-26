@@ -28,11 +28,12 @@ function Workbench() {
           role="tablist"
           aria-label="Engineering focus areas"
           aria-orientation="vertical"
-          data-reveal
         >
-          {workModes.map((mode) => (
+          {workModes.map((mode, index) => (
             <button
               className={`mode-button ${activeModeId === mode.id ? 'active' : ''}`}
+              data-reveal
+              style={{ '--reveal-delay': `${index * 90}ms` }}
               id={`workbench-tab-${mode.id}`}
               key={mode.id}
               type="button"

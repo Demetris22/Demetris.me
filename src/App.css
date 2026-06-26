@@ -82,6 +82,14 @@ main:focus {
   transition-delay: 0ms;
 }
 
+/* Card buttons define their own transition shorthand (which resets delay to 0).
+   This more-specific rule re-applies the stagger delay so it wins. */
+[data-reveal].project-card,
+[data-reveal].mode-button,
+[data-reveal].experience-tab {
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
 [data-glow] {
   --glow-x: 50%;
   --glow-y: 0%;
@@ -986,13 +994,12 @@ h3 {
   border-radius: 18px;
   background: rgba(255, 255, 255, 0.74);
   color: var(--body);
-  opacity: 1;
   text-align: left;
-  transform: none;
   cursor: pointer;
   touch-action: manipulation;
   box-shadow: 0 12px 34px rgba(15, 23, 42, 0.04);
   transition:
+    opacity 720ms cubic-bezier(0.22, 1, 0.36, 1),
     color 180ms ease,
     border-color 180ms ease,
     box-shadow 180ms ease,
@@ -1262,13 +1269,12 @@ h3 {
     linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.82)),
     radial-gradient(circle at top right, rgba(15, 118, 110, 0.1), transparent 34%);
   color: var(--body);
-  opacity: 1;
   text-align: left;
-  transform: none;
   cursor: pointer;
   touch-action: manipulation;
   box-shadow: 0 24px 70px rgba(15, 23, 42, 0.09);
   transition:
+    opacity 720ms cubic-bezier(0.22, 1, 0.36, 1),
     border-color 180ms ease,
     box-shadow 180ms ease,
     transform 360ms cubic-bezier(0.22, 1, 0.36, 1),
@@ -1679,13 +1685,12 @@ h3 {
   border-radius: 18px;
   background: rgba(255, 255, 255, 0.76);
   color: var(--body);
-  opacity: 1;
   text-align: left;
-  transform: none;
   cursor: pointer;
   touch-action: manipulation;
   box-shadow: 0 12px 34px rgba(15, 23, 42, 0.04);
   transition:
+    opacity 720ms cubic-bezier(0.22, 1, 0.36, 1),
     color 180ms ease,
     border-color 180ms ease,
     box-shadow 180ms ease,

@@ -7,7 +7,7 @@ function About() {
       </div>
 
       <div className="profile-layout">
-        <div className="profile-card" data-reveal data-glow>
+        <div className="profile-card" data-reveal data-glow style={{ '--reveal-delay': '80ms' }}>
           <div className="photo-placeholder">
             <img
               src="/profile.jpg"
@@ -24,7 +24,7 @@ function About() {
           </div>
         </div>
 
-        <div className="about-copy" data-reveal>
+        <div className="about-copy" data-reveal style={{ '--reveal-delay': '180ms' }}>
           <p>
             I study Computer Engineering and learn best by building — taking
             ideas from class and turning them into projects I can actually run

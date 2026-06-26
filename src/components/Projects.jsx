@@ -26,13 +26,14 @@ function Projects() {
           role="tablist"
           aria-label="Project case studies"
           aria-orientation="vertical"
-          data-reveal
         >
-          {projectCards.map((project) => (
+          {projectCards.map((project, index) => (
             <button
               className={`project-card ${activeProjectId === project.id ? 'active' : ''}`}
               data-project-card={project.id}
+              data-reveal
               data-glow
+              style={{ '--reveal-delay': `${index * 90}ms` }}
               id={`projects-tab-${project.id}`}
               key={project.id}
               type="button"

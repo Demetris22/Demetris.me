@@ -16,7 +16,7 @@ function Hero() {
 
   return (
     <section className="hero-section" id="home">
-      <div className="hero-copy">
+      <div className="hero-copy" data-reveal>
         <p className="eyebrow">Computer Engineering student from Cyprus</p>
         <h1>I build both sides — the code and the circuit.</h1>
         <p className="hero-intro">
@@ -61,7 +61,7 @@ function Hero() {
         </dl>
       </div>
 
-      <div className="hero-visual" aria-label="Portfolio preview">
+      <div className="hero-visual" aria-label="Portfolio preview" data-reveal style={{ '--reveal-delay': '200ms' }}>
         <div className="visual-card" data-glow>
           <div className="visual-topline">
             <span>Engineering toolkit</span>

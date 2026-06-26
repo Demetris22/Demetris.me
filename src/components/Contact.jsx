@@ -41,7 +41,7 @@ function Contact() {
         </div>
       </div>
 
-      <div className="contact-links" aria-label="Contact links" data-reveal>
+      <div className="contact-links" aria-label="Contact links" data-reveal style={{ '--reveal-delay': '100ms' }}>
         <a href={`mailto:${emailAddress}`}>
           <span>Email</span>
           <strong>{emailAddress}</strong>
