@@ -973,6 +973,9 @@ h3 {
 
 .project-detail-panels > .project-detail-panel.is-active {
   display: block;
+}
+
+.project-detail-panels > .project-detail-panel.is-active > * {
   animation: panel-enter 380ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
@@ -1075,6 +1078,10 @@ h3 {
 .mode-panels > .mode-panel.is-active,
 .experience-panels > .experience-panel.is-active {
   display: block;
+}
+
+.mode-panels > .mode-panel.is-active > *,
+.experience-panels > .experience-panel.is-active > * {
   animation: panel-enter 380ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
@@ -2369,6 +2376,12 @@ h3 {
   .mode-list.is-revealed .mode-button,
   .project-grid.is-revealed .project-card,
   .experience-tabs.is-revealed .experience-tab {
+    animation: none;
+  }
+
+  .project-detail-panels > .project-detail-panel.is-active > *,
+  .mode-panels > .mode-panel.is-active > *,
+  .experience-panels > .experience-panel.is-active > * {
     animation: none;
   }
 }
