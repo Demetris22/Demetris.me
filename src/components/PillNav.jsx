@@ -33,7 +33,7 @@ function PillNav({ items, activeHref, onSelect }) {
       gsap.to(bubble, { opacity: 1, duration: 0.15, ease: 'power2.out' })
       hoveringRef.current = true
     } else {
-      moveTo(e.currentTarget)
+      moveTo(e.currentTarget, true)
     }
   }
 
