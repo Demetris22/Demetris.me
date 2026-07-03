@@ -18,9 +18,9 @@ function Hero() {
     <section className="hero-section" id="home">
       <div className="hero-copy" data-reveal>
         <p className="eyebrow">Computer Engineering student from Cyprus</p>
-        <h1>I build both sides — the code and the circuit.</h1>
+        <h1>I build both sides, the code and the circuit.</h1>
         <p className="hero-intro">
-          Hi, I'm Demetris — I build practical projects, from React interfaces
+          Hi, I'm Demetris, I build practical projects, from React interfaces
           to Arduino-based automation.
         </p>
 

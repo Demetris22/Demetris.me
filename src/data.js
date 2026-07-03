@@ -31,7 +31,7 @@ export const workModes = [
     eyebrow: 'REACT INTERFACE',
     title: 'Building clean and useful web applications',
     description:
-      'Building my frontend skills through React — reusable components, responsive layouts, and practical UIs.',
+      'Building my frontend skills through React, reusable components, responsive layouts, and practical UIs.',
     tools: ['React', 'JavaScript', 'HTML/CSS', 'Responsive design', 'GitHub'],
     example: 'Personal portfolio website built with React and Vite',
     shows: 'Reusable components, responsive layouts, and clean structure.',
@@ -84,7 +84,7 @@ export const projectCards = [
     title: 'Portfolio Website',
     type: 'React and Vite portfolio',
     description:
-      "The site you're on — a React + Vite portfolio of my background, projects, and interests.",
+      "The site you're on, a React + Vite portfolio of my background, projects, and interests.",
     stack: ['React', 'Vite', 'JavaScript', 'CSS'],
     demonstrates: [
       'Component-based layout and responsive design',
@@ -101,7 +101,7 @@ export const projectCards = [
     title: 'UART Serial Command Interface',
     type: 'Arduino / embedded systems',
     description:
-      'A command-line interface running on the Arduino Uno R4 WiFi — type text commands over serial to control three LEDs and read a potentiometer, with structured key-value responses.',
+      'A command-line interface running on the Arduino Uno R4 WiFi, type text commands over serial to control three LEDs and read a potentiometer, with structured key-value responses.',
     stack: ['Arduino Uno R4 WiFi', 'C/C++', 'UART'],
     demonstrates: [
       'UART serial communication and command parsing at 9600 baud',
@@ -109,7 +109,7 @@ export const projectCards = [
       'Structured command handlers and key-value response format',
     ],
     availability: ['CE310 coursework'],
-    note: '6th semester lab project for the Embedded Systems course. Implemented 10+ commands (SET, STATUS, READADC, RESET, HELP) — all 14 test cases passed including invalid command handling.',
+    note: '6th semester lab project for the Embedded Systems course. Implemented 10+ commands (SET, STATUS, READADC, RESET, HELP), all 14 test cases passed including invalid command handling.',
   },
 ]
 
@@ -120,10 +120,10 @@ export const experienceItems = [
     status: 'Completed short internship / technology department placement',
     title: 'Technology Department Intern',
     company: 'ECOMMBX',
-    date: '15 June 2026 - 17 June 2026',
+    date: '15 June 2026, 17 June 2026',
     location: 'Nicosia, Cyprus',
     description:
-      "A short placement in ECOMMBX's Technology Department — a first look at a professional fintech environment and the tech behind digital banking.",
+      "A short placement in ECOMMBX's Technology Department, a first look at a professional fintech environment and the tech behind digital banking.",
     highlights: [
       'Saw how a fintech company organizes its technology work and internal systems.',
       'Observed the role of software, infrastructure, and security in financial technology.',
@@ -137,10 +137,10 @@ export const experienceItems = [
     status: 'Computer Engineering studies',
     title: 'Building engineering foundations',
     institution: 'European University Cyprus',
-    date: '2021 – 2026',
+    date: '2021, 2026',
     location: 'Nicosia, Cyprus',
     description:
-      'Computer Engineering at European University Cyprus — six semesters covering programming, digital systems, hardware, and embedded systems lab work.',
+      'Computer Engineering at European University Cyprus, six semesters covering programming, digital systems, hardware, and embedded systems lab work.',
     highlights: [
       'Programming and problem solving across multiple languages',
       'Embedded systems, digital systems, and microcontroller lab work',

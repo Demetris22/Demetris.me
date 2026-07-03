@@ -26,7 +26,7 @@ function About() {
 
         <div className="about-copy" data-reveal style={{ '--reveal-delay': '180ms' }}>
           <p>
-            I study Computer Engineering and learn best by building — taking
+            I study Computer Engineering and learn best by building, taking
             ideas from class and turning them into projects I can actually run
             and debug.
           </p>

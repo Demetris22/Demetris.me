@@ -1,0 +1,107 @@
+.pill-nav {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 2px 16px rgba(16, 24, 40, 0.06);
+}
+
+.pill-bubble {
+  position: absolute;
+  top: 6px;
+  left: 0;
+  height: calc(100% - 12px);
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--ink), #18283f);
+  box-shadow: 0 12px 28px rgba(16, 24, 40, 0.18);
+  pointer-events: none;
+  z-index: 0;
+  will-change: transform, width;
+}
+
+.pill-link {
+  position: relative;
+  z-index: 1;
+  padding: 9px 13px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--ink);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 180ms ease;
+}
+
+.pill-link:hover {
+  color: var(--ink);
+}
+
+.pill-link.active {
+  color: #fff;
+}
+
+.pill-link-contact {
+  color: var(--accent);
+}
+
+.pill-link-contact.active {
+  color: #fff;
+}
+
+/* Dark theme */
+[data-theme="dark"] .pill-nav {
+  background: rgba(15, 23, 42, 0.75);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 2px 16px rgba(0, 0, 0, 0.35);
+}
+
+[data-theme="dark"] .pill-bubble {
+  background: linear-gradient(135deg, #e2e8f0, #f8fafc);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+}
+
+[data-theme="dark"] .pill-link.active {
+  color: #0f172a;
+}
+
+/* Mobile: hide GSAP bubble, use per-link active class instead */
+@media (max-width: 940px) {
+  .pill-nav {
+    flex: 1;
+    min-width: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+  }
+
+  .pill-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .pill-bubble {
+    display: none;
+  }
+
+  .pill-link.active {
+    background: linear-gradient(135deg, var(--ink), #18283f);
+    color: #fff;
+    box-shadow: 0 12px 28px rgba(16, 24, 40, 0.18);
+  }
+
+  [data-theme="dark"] .pill-link.active {
+    background: linear-gradient(135deg, #e2e8f0, #f8fafc);
+    color: #0f172a;
+  }
+
+  .pill-link-contact.active {
+    background: linear-gradient(135deg, var(--accent), var(--accent-blue));
+  }
+}
