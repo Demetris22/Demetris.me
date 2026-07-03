@@ -5,43 +5,18 @@ import './PillNav.css'
 function PillNav({ items, activeHref, onSelect }) {
   const containerRef = useRef(null)
   const bubbleRef = useRef(null)
-  const hoveringRef = useRef(false)
 
-  const moveTo = (el, instant = false) => {
+  const moveTo = (el) => {
     const container = containerRef.current
     const bubble = bubbleRef.current
     if (!container || !bubble || !el) return
     const cRect = container.getBoundingClientRect()
     const eRect = el.getBoundingClientRect()
-    if (instant) {
-      gsap.set(bubble, { x: eRect.left - cRect.left, width: eRect.width })
-    } else {
-      gsap.to(bubble, {
-        x: eRect.left - cRect.left,
-        width: eRect.width,
-        duration: 0.28,
-        ease: 'power2.out',
-      })
-    }
+    gsap.set(bubble, { x: eRect.left - cRect.left, width: eRect.width })
   }
 
   const handleMouseEnter = (e) => {
-    const bubble = bubbleRef.current
-    if (!bubble) return
-    if (!hoveringRef.current) {
-      moveTo(e.currentTarget, true)
-      gsap.to(bubble, { opacity: 1, duration: 0.15, ease: 'power2.out' })
-      hoveringRef.current = true
-    } else {
-      moveTo(e.currentTarget, true)
-    }
-  }
-
-  const handleMouseLeave = () => {
-    const bubble = bubbleRef.current
-    if (!bubble) return
-    gsap.to(bubble, { opacity: 0, duration: 0.2, ease: 'power2.in' })
-    hoveringRef.current = false
+    moveTo(e.currentTarget)
   }
 
   return (
@@ -49,7 +24,6 @@ function PillNav({ items, activeHref, onSelect }) {
       ref={containerRef}
       className="pill-nav"
       aria-label="Primary navigation"
-      onMouseLeave={handleMouseLeave}
     >
       <div ref={bubbleRef} className="pill-bubble" aria-hidden="true" />
       {items.map((item) => {
