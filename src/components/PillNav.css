@@ -43,7 +43,9 @@
 }
 
 .pill-link.active {
+  background: linear-gradient(135deg, var(--ink), #18283f);
   color: #fff;
+  box-shadow: 0 12px 28px rgba(16, 24, 40, 0.18);
 }
 
 .pill-link-contact {
@@ -51,6 +53,7 @@
 }
 
 .pill-link-contact.active {
+  background: linear-gradient(135deg, var(--accent), var(--accent-blue));
   color: #fff;
 }
 
@@ -72,10 +75,12 @@
 }
 
 [data-theme="dark"] .pill-link.active {
+  background: linear-gradient(135deg, #e2e8f0, #f8fafc);
   color: #0f172a;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
 }
 
-/* Mobile: hide GSAP bubble, use per-link active class instead */
+/* Mobile: hide GSAP bubble (CSS active background handles it) */
 @media (max-width: 940px) {
   .pill-nav {
     flex: 1;
@@ -92,20 +97,5 @@
 
   .pill-bubble {
     display: none;
-  }
-
-  .pill-link.active {
-    background: linear-gradient(135deg, var(--ink), #18283f);
-    color: #fff;
-    box-shadow: 0 12px 28px rgba(16, 24, 40, 0.18);
-  }
-
-  [data-theme="dark"] .pill-link.active {
-    background: linear-gradient(135deg, #e2e8f0, #f8fafc);
-    color: #0f172a;
-  }
-
-  .pill-link-contact.active {
-    background: linear-gradient(135deg, var(--accent), var(--accent-blue));
   }
 }
