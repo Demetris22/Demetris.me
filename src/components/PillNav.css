@@ -39,7 +39,7 @@
 }
 
 .pill-link:hover {
-  color: var(--ink);
+  color: #fff;
 }
 
 .pill-link.active {
@@ -52,6 +52,10 @@
 
 .pill-link-contact.active {
   color: #fff;
+}
+
+[data-theme="dark"] .pill-link:hover {
+  color: #0f172a;
 }
 
 /* Dark theme */
