@@ -2236,6 +2236,21 @@ h3 {
 }
 
 @media (hover: hover) and (pointer: fine) {
+  /* Pre-promote to GPU compositor layer so the hover-exit transform transition
+     and smooth-scroll run independently — prevents the 5px lift reverting at
+     the same time as scroll starts, which shows as a flicker. */
+  .quick-stats div,
+  .profile-card,
+  .about-copy,
+  .experience-meta div,
+  .experience-content > div,
+  .visual-card,
+  .mode-panel,
+  .project-detail-panel,
+  .experience-panel {
+    will-change: transform;
+  }
+
   .quick-stats div:hover,
   .profile-card:hover,
   .about-copy:hover,
