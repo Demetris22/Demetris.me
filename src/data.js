@@ -84,7 +84,7 @@ export const projectCards = [
     title: 'Portfolio Website',
     type: 'React and Vite portfolio',
     description:
-      "The site you're on, a React + Vite portfolio of my background, projects, and interests.",
+      'The site you’re on, a React + Vite portfolio of my background, projects, and interests.',
     stack: ['React', 'Vite', 'JavaScript', 'CSS'],
     demonstrates: [
       'Component-based layout and responsive design',
@@ -101,7 +101,7 @@ export const projectCards = [
     title: 'Sketchef',
     type: 'React app / Arduino project finder',
     description:
-      'Pick your board and the parts you own, and Sketchef sorts a project catalog by what you can build now versus what\'s one part away.',
+      'Pick your board and the parts you own, and Sketchef sorts a project catalog by what you can build now versus what’s one part away.',
     stack: ['React 18', 'Vite', 'JavaScript', 'CSS', 'Vitest'],
     demonstrates: [
       'Hardware-aware matching engine that respects pin counts and board features, not just parts owned',
@@ -110,7 +110,7 @@ export const projectCards = [
     ],
     availability: ['Live demo', 'Public repo'],
     liveUrl: 'https://sketchef.vercel.app',
-    note: 'Fully static — no backend or API calls. The "what to buy next" feature ranks components by how many new projects each one unlocks and recomputes live as you check things off.',
+    note: 'Fully static — no backend or API calls. The “what to buy next” feature ranks components by how many new projects each one unlocks and recomputes live as you check things off.',
   },
   {
     id: 'uart',
@@ -137,10 +137,10 @@ export const experienceItems = [
     status: 'Completed short internship / technology department placement',
     title: 'Technology Department Intern',
     company: 'ECOMMBX',
-    date: '15 June 2026, 17 June 2026',
+    date: '15–17 June 2026',
     location: 'Nicosia, Cyprus',
     description:
-      "A short placement in ECOMMBX's Technology Department, a first look at a professional fintech environment and the tech behind digital banking.",
+      'A short placement in ECOMMBX’s Technology Department, a first look at a professional fintech environment and the tech behind digital banking.',
     highlights: [
       'Saw how a fintech company organizes its technology work and internal systems.',
       'Observed the role of software, infrastructure, and security in financial technology.',
@@ -154,7 +154,7 @@ export const experienceItems = [
     status: 'Computer Engineering studies',
     title: 'Building engineering foundations',
     institution: 'European University Cyprus',
-    date: '2021, 2026',
+    date: '2021–2026',
     location: 'Nicosia, Cyprus',
     description:
       'Computer Engineering at European University Cyprus, six semesters covering programming, digital systems, hardware, and embedded systems lab work.',

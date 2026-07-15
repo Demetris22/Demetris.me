@@ -17,7 +17,7 @@ function Workbench() {
         <p className="eyebrow">Interactive workbench</p>
         <h2 id="workbench-title">Three ways I build.</h2>
         <p>
-          The same approach applied three ways, web, embedded, and hands-on
+          The same approach applied three ways: web, embedded, and hands-on
           hardware.
         </p>
       </div>

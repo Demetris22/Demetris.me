@@ -1,8 +1,9 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { emailAddress } from '../data'
 
 function Contact() {
   const [copyStatus, setCopyStatus] = useState('')
+  const copyResetTimer = useRef(null)
 
   const handleCopyEmail = async () => {
     try {
@@ -25,14 +26,15 @@ function Contact() {
       setCopyStatus('Copy unavailable')
     }
 
-    window.setTimeout(() => setCopyStatus(''), 1500)
+    window.clearTimeout(copyResetTimer.current)
+    copyResetTimer.current = window.setTimeout(() => setCopyStatus(''), 1500)
   }
 
   return (
     <section className="contact-section" id="contact" aria-labelledby="contact-title">
       <div className="contact-copy" data-reveal>
         <p className="eyebrow">Contact</p>
-        <h2 id="contact-title">Let&apos;s connect.</h2>
+        <h2 id="contact-title">Let’s connect.</h2>
         <p>Always glad to talk projects, internships, or feedback.</p>
 
         <div className="contact-availability">
@@ -46,14 +48,14 @@ function Contact() {
           <span>Email</span>
           <strong>{emailAddress}</strong>
         </a>
-        <a href="https://github.com/Demetris22" target="_blank" rel="noreferrer">
+        <a href="https://github.com/Demetris22" target="_blank" rel="noopener noreferrer">
           <span>GitHub</span>
           <strong>github.com/Demetris22</strong>
         </a>
         <a
           href="https://www.linkedin.com/in/demetris-demetriou-a59a0124a"
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
         >
           <span>LinkedIn</span>
           <strong>linkedin.com/in/demetris-demetriou</strong>
@@ -61,7 +63,7 @@ function Contact() {
         <a
           href="https://github.com/Demetris22/Demetris.me"
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
         >
           <span>Portfolio repo</span>
           <strong>Demetris22/Demetris.me</strong>

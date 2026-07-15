@@ -32,7 +32,7 @@ function About() {
           </p>
 
           <div className="about-focus">
-            <p className="about-focus-label">What I'm into</p>
+            <p className="about-focus-label">What I’m into</p>
             <ul>
               <li>Front-end development with React</li>
               <li>Embedded systems and Arduino</li>

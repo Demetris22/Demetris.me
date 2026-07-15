@@ -20,7 +20,7 @@ function Experience() {
         <p className="eyebrow">Experience</p>
         <h2 id="experience-title">A practical engineering path in progress.</h2>
         <p>
-          University, repair work, an internship, and self-directed projects,
+          University, repair work, an internship, and self-directed projects —
           the path so far.
         </p>
       </div>
