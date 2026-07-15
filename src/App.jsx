@@ -197,59 +197,19 @@ function App() {
     }
   }, [])
 
-  // Persist + apply the theme.
+  // Persist + apply the theme; keep the browser-chrome tint matched to the
+  // page background.
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme)
+    document
+      .querySelector('meta[name="theme-color"]')
+      ?.setAttribute('content', theme === 'dark' ? '#0a0f1a' : '#f7fafc')
     try {
       window.localStorage.setItem('theme', theme)
     } catch {
       /* storage may be unavailable (private mode); ignore */
     }
   }, [theme])
-
-  // Subtle horizontal parallax on the big ghost watermark headings.
-  useEffect(() => {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      return
-    }
-    const headings = Array.from(document.querySelectorAll('.section-heading'))
-    if (headings.length === 0) {
-      return
-    }
-    let frame = null
-
-    const update = () => {
-      frame = null
-      const viewportHeight = window.innerHeight
-      headings.forEach((heading) => {
-        const rect = heading.getBoundingClientRect()
-        const rawProgress =
-          (viewportHeight - rect.top) / (viewportHeight + rect.height)
-        const progress = Math.min(Math.max(rawProgress, 0), 1)
-        const shift = (progress - 0.5) * 52
-        heading.style.setProperty('--ghost-shift', `${shift.toFixed(1)}px`)
-      })
-    }
-
-    const requestUpdate = () => {
-      if (frame !== null) {
-        return
-      }
-      frame = window.requestAnimationFrame(update)
-    }
-
-    update()
-    window.addEventListener('scroll', requestUpdate, { passive: true })
-    window.addEventListener('resize', requestUpdate)
-
-    return () => {
-      if (frame !== null) {
-        window.cancelAnimationFrame(frame)
-      }
-      window.removeEventListener('scroll', requestUpdate)
-      window.removeEventListener('resize', requestUpdate)
-    }
-  }, [])
 
   return (
     <div className="app-shell">

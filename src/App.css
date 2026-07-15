@@ -13,7 +13,9 @@
   z-index: 40;
   padding: 10px 16px;
   border-radius: 12px;
-  background: var(--ink);
+  /* Fixed dark background: var(--ink) flips light in dark mode, which would
+     make the white label invisible. */
+  background: #101828;
   color: #ffffff;
   font-size: 0.9rem;
   font-weight: 800;
@@ -160,99 +162,10 @@ main:focus {
   font-size: 0.82rem;
 }
 
-.site-nav {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px;
-  border: 1px solid rgba(226, 232, 240, 0.9);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.8);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
-}
-
-.site-nav a {
-  position: relative;
-  overflow: hidden;
-  padding: 9px 13px;
-  border-radius: 999px;
-  color: var(--muted);
-  font-size: 0.92rem;
-  font-weight: 700;
-  text-decoration: none;
-  transition:
-    color 180ms ease,
-    background 180ms ease,
-    box-shadow 180ms ease,
-    transform 180ms ease;
-}
-
-.site-nav a::after {
-  content: "";
-  position: absolute;
-  right: 13px;
-  bottom: 6px;
-  left: 13px;
-  height: 2px;
-  border-radius: 999px;
-  background: currentColor;
-  opacity: 0;
-  transform: scaleX(0.45);
-  transition:
-    opacity 180ms ease,
-    transform 180ms ease;
-}
-
-.site-nav a:hover,
-.site-nav a:focus-visible {
-  background: #eef6f7;
-  color: var(--ink);
-  transform: translateY(-1px);
-}
-
-.site-nav a:hover::after,
-.site-nav a:focus-visible::after {
-  opacity: 0.36;
-  transform: scaleX(1);
-}
-
-.site-nav a.nav-contact {
-  color: var(--accent);
-  background: rgba(15, 118, 110, 0.08);
-}
-
-.site-nav a.active {
-  background: linear-gradient(135deg, var(--ink), #18283f);
-  color: #ffffff;
-  box-shadow: 0 12px 28px rgba(16, 24, 40, 0.18);
-}
-
-.site-nav a.active::after {
-  opacity: 0;
-}
-
-.site-nav a.nav-contact.active {
-  background: linear-gradient(135deg, var(--accent), var(--accent-blue));
-  color: #ffffff;
-  box-shadow: 0 12px 30px rgba(15, 118, 110, 0.22);
-}
-
-.site-nav a.active:hover,
-.site-nav a.active:focus-visible {
-  background: var(--ink);
-  color: #ffffff;
-}
-
 .header-actions {
   display: flex;
   align-items: center;
   gap: 10px;
-  min-width: 0;
-}
-
-.nav-scroll-wrap {
-  position: relative;
-  flex: 1;
   min-width: 0;
 }
 
@@ -727,30 +640,6 @@ h3 {
   z-index: 1;
 }
 
-/* Ghost watermark text — sits behind heading content */
-.about-section > .section-heading::before { content: "ABOUT"; }
-.workbench-section > .section-heading::before { content: "WORK"; }
-.projects-section > .section-heading::before { content: "BUILD"; }
-.experience-section > .section-heading::before { content: "PATH"; }
-.contact-section > .section-heading::before { content: "HELLO"; }
-
-.about-section > .section-heading::before,
-.workbench-section > .section-heading::before,
-.projects-section > .section-heading::before,
-.experience-section > .section-heading::before,
-.contact-section > .section-heading::before {
-  display: none;
-}
-
-/* Dark mode: ink-colour watermark disappears on a dark bg — use a light tint instead. */
-[data-theme="dark"] .about-section > .section-heading::before,
-[data-theme="dark"] .workbench-section > .section-heading::before,
-[data-theme="dark"] .projects-section > .section-heading::before,
-[data-theme="dark"] .experience-section > .section-heading::before,
-[data-theme="dark"] .contact-section > .section-heading::before {
-  color: rgba(255, 255, 255, 0.08);
-}
-
 .section-heading p:not(.eyebrow) {
   color: var(--body);
   font-size: 1rem;
@@ -832,22 +721,6 @@ h3 {
   width: 230px;
   height: 230px;
   opacity: 0.65;
-}
-
-.photo-placeholder span {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  width: 72px;
-  height: 72px;
-  place-items: center;
-  border: 1px solid rgba(255, 255, 255, 0.34);
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.12);
-  font-size: 1.7rem;
-  font-weight: 900;
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.18);
-  backdrop-filter: blur(14px);
 }
 
 .profile-card-label {
@@ -1569,34 +1442,6 @@ h3 {
   color: #bff5eb;
 }
 
-/* Panel always has a dark background, so these styles hold in both themes. */
-.panel-live-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  margin-top: 20px;
-  padding: 10px 18px;
-  border: 1px solid rgba(142, 228, 213, 0.38);
-  border-radius: 999px;
-  background: rgba(142, 228, 213, 0.1);
-  color: #bff5eb;
-  font-size: 0.9rem;
-  font-weight: 800;
-  text-decoration: none;
-  transition:
-    border-color 180ms ease,
-    background 180ms ease,
-    transform 260ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.panel-live-link:hover,
-.panel-live-link:focus-visible {
-  border-color: rgba(142, 228, 213, 0.62);
-  background: rgba(142, 228, 213, 0.18);
-  transform: translateY(-2px);
-  outline-color: rgba(142, 228, 213, 0.7);
-}
-
 .project-detail-grid {
   display: grid;
   grid-template-columns: 1fr 0.9fr;
@@ -2173,11 +2018,6 @@ h3 {
   transform: translateY(-3px) scale(1.02);
 }
 
-[data-magnetic]:hover,
-[data-magnetic]:focus-visible {
-  filter: saturate(1.08);
-}
-
 .quick-stats div:nth-child(2),
 .mode-list .mode-button:nth-child(2),
 .project-grid .project-card:nth-child(2),
@@ -2423,33 +2263,6 @@ h3 {
     width: 100%;
   }
 
-  .site-nav {
-    width: 100%;
-    justify-content: flex-start;
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
-
-  .site-nav::-webkit-scrollbar {
-    display: none;
-  }
-
-  .nav-scroll-wrap {
-    overflow: hidden;
-  }
-
-  .nav-scroll-wrap::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    width: 48px;
-    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.98));
-    pointer-events: none;
-    z-index: 1;
-  }
-
   .hero-section {
     grid-template-columns: 1fr;
     gap: 34px;
@@ -2505,25 +2318,6 @@ h3 {
     margin-top: 8px;
     padding: 5px 5px 5px 7px;
     border-radius: 999px;
-  }
-
-  .site-nav {
-    width: 100%;
-    justify-content: flex-start;
-    gap: 6px;
-    overflow-x: auto;
-    padding: 5px;
-    scrollbar-width: none;
-  }
-
-  .site-nav::-webkit-scrollbar {
-    display: none;
-  }
-
-  .site-nav a {
-    flex: 0 0 auto;
-    padding: 8px 11px;
-    font-size: 0.86rem;
   }
 
   .back-to-top {
@@ -2589,16 +2383,6 @@ h3 {
   /* 3 columns is too cramped at 375px — drop to 2. */
   .visual-stack {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  /* Ghost watermark: soften the minimum so it doesn't overpower the copy
-     on very narrow viewports. */
-  .about-section > .section-heading::before,
-  .workbench-section > .section-heading::before,
-  .projects-section > .section-heading::before,
-  .experience-section > .section-heading::before,
-  .contact-section > .section-heading::before {
-    font-size: clamp(3rem, 12vw, 5rem);
   }
 
   /* Tighten stacked hero — less gap + shorter bottom pad on small screens. */
@@ -2677,14 +2461,13 @@ h3 {
   .scroll-progress,
   .skip-link,
   .back-to-top,
-  .site-nav,
+  .pill-nav,
   .hero-rotator,
   .hero-visual,
   .interaction-status,
   .mode-list,
   .project-grid,
-  .experience-tabs,
-  .section-heading::before {
+  .experience-tabs {
     display: none !important;
   }
 
@@ -2778,32 +2561,6 @@ h3 {
   box-shadow:
     0 16px 44px rgba(0, 0, 0, 0.6),
     0 1px 0 rgba(255, 255, 255, 0.05) inset;
-}
-
-[data-theme="dark"] .site-nav {
-  background: rgba(255, 255, 255, 0.04);
-  border-color: rgba(255, 255, 255, 0.1);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
-}
-
-[data-theme="dark"] .nav-scroll-wrap::after {
-  background: linear-gradient(to right, transparent, #0c121f);
-}
-
-[data-theme="dark"] .site-nav a:hover,
-[data-theme="dark"] .site-nav a:focus-visible {
-  background: rgba(255, 255, 255, 0.08);
-}
-
-[data-theme="dark"] .site-nav a.active,
-[data-theme="dark"] .site-nav a.active:hover,
-[data-theme="dark"] .site-nav a.active:focus-visible {
-  background: linear-gradient(135deg, #0f766e, #2563eb);
-  color: #ffffff;
-}
-
-[data-theme="dark"] .site-nav a.nav-contact {
-  background: rgba(45, 212, 191, 0.12);
 }
 
 [data-theme="dark"] .scroll-progress {
@@ -2910,11 +2667,24 @@ h3 {
   background: rgba(45, 212, 191, 0.12);
 }
 
-/* Ghost watermark headings: faint light instead of faint dark */
-[data-theme="dark"] .about-section > .section-heading::before,
-[data-theme="dark"] .workbench-section > .section-heading::before,
-[data-theme="dark"] .projects-section > .section-heading::before,
-[data-theme="dark"] .experience-section > .section-heading::before,
-[data-theme="dark"] .contact-section > .section-heading::before {
-  color: rgba(255, 255, 255, 0.08);
+/* Teal-tinted chips: the light-theme tints are too faint on dark surfaces —
+   lift borders/backgrounds so the pills stay visible. */
+[data-theme="dark"] .project-card-topline span,
+[data-theme="dark"] .project-card-action,
+[data-theme="dark"] .project-card-live,
+[data-theme="dark"] .project-stack span {
+  border-color: rgba(45, 212, 191, 0.3);
+  background: rgba(45, 212, 191, 0.1);
+}
+
+[data-theme="dark"] .project-stack span {
+  color: var(--ink);
+}
+
+[data-theme="dark"] .experience-tabs::before {
+  background: linear-gradient(180deg, rgba(45, 212, 191, 0.3), rgba(96, 165, 250, 0.24));
+}
+
+[data-theme="dark"] .contact-links a::after {
+  color: rgba(45, 212, 191, 0.65);
 }
