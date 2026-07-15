@@ -101,12 +101,12 @@ export const projectCards = [
     title: 'Sketchef',
     type: 'React app / Arduino project finder',
     description:
-      'Pick your Arduino board and check off the parts you own — Sketchef instantly sorts a project catalog into what you can build now, what\'s one part away, and what needs a different board.',
+      'Pick your board and the parts you own, and Sketchef sorts a project catalog by what you can build now versus what\'s one part away.',
     stack: ['React 18', 'Vite', 'JavaScript', 'CSS', 'Vitest'],
     demonstrates: [
-      'Hardware-aware matching engine that respects board pin counts and features, not just component ownership',
-      'Pure logic modules (matching, buy-next optimizer, URL state) fully isolated from the UI and covered by unit tests',
-      'Shareable URLs — board and parts encoded in the query string, validated on load and degrading gracefully on bad input',
+      'Hardware-aware matching engine that respects pin counts and board features, not just parts owned',
+      'Pure logic modules — matching, buy-next optimizer, URL state — isolated from the UI and unit-tested',
+      'Shareable URLs — board and parts encoded in the query string, validated on load with graceful fallback',
     ],
     availability: ['Live demo', 'Public repo'],
     liveUrl: 'https://sketchef.vercel.app',
