@@ -19,6 +19,31 @@ function App() {
       : 'light'
   )
   const scrollProgressRef = useRef(null)
+  const spySuppressedRef = useRef(false)
+  const spySettleTimerRef = useRef(null)
+  const spyPendingSectionRef = useRef(null)
+  const spyEndSnappedRef = useRef(false)
+  const updateScrollStateRef = useRef(() => {})
+
+  // Trailing quiet-period check: refreshed on every scroll event, fires once
+  // scrolling has settled. Re-enables the spy after a click-initiated smooth
+  // scroll and runs one final state pass so the highlight always converges.
+  const scheduleSpySettle = () => {
+    window.clearTimeout(spySettleTimerRef.current)
+    spySettleTimerRef.current = window.setTimeout(() => {
+      spySuppressedRef.current = false
+      updateScrollStateRef.current()
+    }, 150)
+  }
+
+  // Nav clicks own the highlight: set the destination once and pause the
+  // scroll-spy while the smooth scroll is in flight, so per-frame
+  // recalculation can't drag the active pill through intermediate sections.
+  const selectSection = (sectionId) => {
+    setActiveSection(sectionId)
+    spySuppressedRef.current = true
+    scheduleSpySettle()
+  }
 
   // Scroll progress bar, active-section (scroll-spy), and back-to-top visibility.
   useEffect(() => {
@@ -55,9 +80,18 @@ function App() {
       })
 
       const lastSection = sections[sections.length - 1]
-      const isAtPageEnd =
-        window.innerHeight + scrollTop >= document.documentElement.scrollHeight - 8
-      const nextSection = isAtPageEnd && lastSection ? lastSection.id : currentSection
+      const distanceFromEnd =
+        document.documentElement.scrollHeight - (window.innerHeight + scrollTop)
+      // Hysteresis on the page-end snap: engage close to the bottom, release
+      // only once clearly away again — otherwise momentum/elastic jitter of a
+      // few pixels around a single threshold flips the active item repeatedly.
+      if (distanceFromEnd <= 8) {
+        spyEndSnappedRef.current = true
+      } else if (distanceFromEnd > 56) {
+        spyEndSnappedRef.current = false
+      }
+      const nextSection =
+        spyEndSnappedRef.current && lastSection ? lastSection.id : currentSection
 
       if (scrollProgressRef.current) {
         scrollProgressRef.current.style.transform = `scaleX(${progress / 100})`
@@ -67,10 +101,23 @@ function App() {
         const shouldShow = progress > 8
         return isVisible === shouldShow ? isVisible : shouldShow
       })
-      setActiveSection((currentSectionId) =>
-        currentSectionId === nextSection ? currentSectionId : nextSection
-      )
+
+      // Commit a section change only when two consecutive updates agree, so a
+      // single-frame flip at a boundary never reaches the nav — and never
+      // while a nav click owns the highlight.
+      if (!spySuppressedRef.current) {
+        if (
+          spyPendingSectionRef.current === null ||
+          spyPendingSectionRef.current === nextSection
+        ) {
+          setActiveSection((currentSectionId) =>
+            currentSectionId === nextSection ? currentSectionId : nextSection
+          )
+        }
+      }
+      spyPendingSectionRef.current = nextSection
     }
+    updateScrollStateRef.current = updateScrollState
 
     const requestScrollStateUpdate = () => {
       if (scrollStateFrame !== null) {
@@ -83,8 +130,13 @@ function App() {
       })
     }
 
+    const handleScroll = () => {
+      requestScrollStateUpdate()
+      scheduleSpySettle()
+    }
+
     updateScrollState()
-    window.addEventListener('scroll', requestScrollStateUpdate, { passive: true })
+    window.addEventListener('scroll', handleScroll, { passive: true })
     window.addEventListener('resize', requestScrollStateUpdate)
 
     return () => {
@@ -92,7 +144,8 @@ function App() {
         window.cancelAnimationFrame(scrollStateFrame)
       }
 
-      window.removeEventListener('scroll', requestScrollStateUpdate)
+      window.clearTimeout(spySettleTimerRef.current)
+      window.removeEventListener('scroll', handleScroll)
       window.removeEventListener('resize', requestScrollStateUpdate)
     }
   }, [])
@@ -222,7 +275,7 @@ function App() {
 
       <SiteHeader
         activeSection={activeSection}
-        onSelectSection={setActiveSection}
+        onSelectSection={selectSection}
         theme={theme}
         onToggleTheme={() =>
           setTheme((current) => (current === 'dark' ? 'light' : 'dark'))
@@ -244,6 +297,7 @@ function App() {
         className={`back-to-top ${showBackToTop ? 'visible' : ''}`}
         href="#home"
         aria-label="Back to top"
+        onClick={() => selectSection('home')}
         tabIndex={showBackToTop ? undefined : -1}
       >
         Top

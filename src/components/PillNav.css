@@ -22,12 +22,40 @@
   pointer-events: none;
   z-index: 0;
   opacity: 0;
-  transition: opacity 150ms ease;
+  /* Fast exit so a fading-out bubble never reads as a second highlight. */
+  transition: opacity 90ms ease;
   will-change: transform, width, opacity;
 }
 
-.pill-nav:hover .pill-bubble {
+/* Reveal only while a link is actually hovered — hovering the nav's own
+   padding/gaps must not show the bubble at a stale position (no mouseenter
+   fires there, so it would fade in wherever it last was). */
+.pill-nav:has(.pill-link:hover) .pill-bubble {
   opacity: 1;
+  transition: opacity 150ms ease;
+}
+
+/* While the bubble is out, it is THE single dark pill: mute the active link's
+   own pill so two identical highlights can never coexist. Desktop only — the
+   bubble is display:none on mobile. */
+@media (min-width: 941px) {
+  .pill-nav:has(.pill-link:hover) .pill-link.active {
+    background: transparent;
+    box-shadow: none;
+    color: var(--ink);
+  }
+
+  .pill-nav:has(.pill-link:hover) .pill-link-contact.active {
+    color: var(--accent);
+  }
+
+  .pill-nav:has(.pill-link:hover) .pill-link.active:hover {
+    color: #fff;
+  }
+
+  [data-theme="dark"] .pill-nav:has(.pill-link:hover) .pill-link.active:hover {
+    color: #0f172a;
+  }
 }
 
 .pill-link {
