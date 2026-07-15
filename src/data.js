@@ -96,6 +96,23 @@ export const projectCards = [
     note: 'An active public project I keep improving with stronger details and updated experience.',
   },
   {
+    id: 'sketchef',
+    status: 'Active project',
+    title: 'Sketchef',
+    type: 'React app / Arduino project finder',
+    description:
+      'Pick your Arduino board and check off the parts you own — Sketchef instantly sorts a project catalog into what you can build now, what\'s one part away, and what needs a different board.',
+    stack: ['React 18', 'Vite', 'JavaScript', 'CSS', 'Vitest'],
+    demonstrates: [
+      'Hardware-aware matching engine that respects board pin counts and features, not just component ownership',
+      'Pure logic modules (matching, buy-next optimizer, URL state) fully isolated from the UI and covered by unit tests',
+      'Shareable URLs — board and parts encoded in the query string, validated on load and degrading gracefully on bad input',
+    ],
+    availability: ['Live demo', 'Public repo'],
+    liveUrl: 'https://sketchef.vercel.app',
+    note: 'Fully static — no backend or API calls. The "what to buy next" feature ranks components by how many new projects each one unlocks and recomputes live as you check things off.',
+  },
+  {
     id: 'uart',
     status: 'Embedded systems project',
     title: 'UART Serial Command Interface',
