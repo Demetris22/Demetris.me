@@ -114,8 +114,9 @@ main:focus {
   padding: 10px 12px;
   border: 1px solid rgba(214, 222, 232, 0.95);
   border-radius: 28px;
-  /* Solid (not translucent) so section headings can't bleed through as they
-     scroll behind the bar. */
+  /* Solid base = fallback for browsers without backdrop-filter, where content
+     scrolling behind a translucent bar would look broken. The liquid-glass
+     treatment at the end of this file overrides it inside @supports. */
   background: #f7fafc;
   box-shadow:
     0 16px 44px rgba(15, 23, 42, 0.12),
@@ -2779,4 +2780,120 @@ h3 {
 
 [data-theme="dark"] .github-repo-skeleton span {
   background: rgba(255, 255, 255, 0.09);
+}
+
+/* ----------------------------------------------------------------------------
+   Liquid-glass treatment (web approximation: backdrop-filter + specular edge
+   highlights). Applied only to chrome that floats over moving content — the
+   sticky header, pill nav, back-to-top — plus the hero visual card. Dark
+   panels stay solid by design.
+
+   Gated behind @supports so browsers without backdrop-filter keep the solid
+   fallbacks, and reverted under prefers-reduced-transparency.
+---------------------------------------------------------------------------- */
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .site-header {
+    background: rgba(247, 250, 252, 0.72);
+    border-color: rgba(255, 255, 255, 0.65);
+    box-shadow:
+      0 16px 44px rgba(15, 23, 42, 0.1),
+      0 1px 0 rgba(255, 255, 255, 0.85) inset,
+      0 -1px 0 rgba(15, 23, 42, 0.04) inset;
+    backdrop-filter: blur(28px) saturate(1.6);
+    -webkit-backdrop-filter: blur(28px) saturate(1.6);
+  }
+
+  .pill-nav {
+    background: rgba(255, 255, 255, 0.55);
+  }
+
+  .back-to-top {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(20px) saturate(1.5);
+    -webkit-backdrop-filter: blur(20px) saturate(1.5);
+  }
+
+  .visual-card {
+    background:
+      radial-gradient(500px circle at var(--glow-x) var(--glow-y), rgba(142, 228, 213, 0.3), rgba(142, 228, 213, 0.1) 32%, transparent 58%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.58)),
+      linear-gradient(135deg, rgba(15, 118, 110, 0.12), rgba(37, 99, 235, 0.1));
+    box-shadow:
+      0 30px 80px rgba(15, 23, 42, 0.12),
+      0 0 0 8px rgba(255, 255, 255, 0.35),
+      0 1px 0 rgba(255, 255, 255, 0.9) inset;
+    backdrop-filter: blur(18px) saturate(1.35);
+    -webkit-backdrop-filter: blur(18px) saturate(1.35);
+  }
+
+  [data-theme="dark"] .site-header {
+    background: rgba(12, 18, 31, 0.66);
+    border-color: rgba(255, 255, 255, 0.14);
+    box-shadow:
+      0 16px 44px rgba(0, 0, 0, 0.55),
+      0 1px 0 rgba(255, 255, 255, 0.08) inset;
+    backdrop-filter: blur(28px) saturate(1.4);
+    -webkit-backdrop-filter: blur(28px) saturate(1.4);
+  }
+
+  [data-theme="dark"] .back-to-top {
+    background: rgba(19, 28, 46, 0.62);
+  }
+
+  [data-theme="dark"] .visual-card {
+    background:
+      radial-gradient(480px circle at var(--glow-x) var(--glow-y), rgba(96, 165, 250, 0.18), transparent 58%),
+      linear-gradient(180deg, rgba(24, 35, 58, 0.78), rgba(18, 26, 43, 0.66));
+    box-shadow:
+      0 30px 80px rgba(0, 0, 0, 0.4),
+      0 1px 0 rgba(255, 255, 255, 0.08) inset;
+  }
+}
+
+/* Users who opt out of transparency get the solid surfaces back. Declared
+   after the @supports block so it wins the cascade. */
+@media (prefers-reduced-transparency: reduce) {
+  .site-header,
+  .back-to-top,
+  .visual-card,
+  [data-theme="dark"] .site-header,
+  [data-theme="dark"] .back-to-top,
+  [data-theme="dark"] .visual-card {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .site-header {
+    background: #f7fafc;
+  }
+
+  .pill-nav {
+    background: rgba(255, 255, 255, 0.9);
+  }
+
+  .back-to-top {
+    background: #ffffff;
+  }
+
+  .visual-card {
+    background:
+      linear-gradient(180deg, #ffffff, #f7fafc),
+      linear-gradient(135deg, rgba(15, 118, 110, 0.12), rgba(37, 99, 235, 0.1));
+  }
+
+  [data-theme="dark"] .site-header {
+    background: #0c121f;
+  }
+
+  [data-theme="dark"] .pill-nav {
+    background: #131c2e;
+  }
+
+  [data-theme="dark"] .back-to-top {
+    background: #131c2e;
+  }
+
+  [data-theme="dark"] .visual-card {
+    background: linear-gradient(180deg, #18233a, #121a2b);
+  }
 }
