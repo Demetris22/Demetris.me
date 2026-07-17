@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { projectCards } from '../data'
 import { handleTabKeyDown } from '../lib/tabs'
+import GitHubFeed from './GitHubFeed'
 
 function Projects() {
   const [activeProjectId, setActiveProjectId] = useState(projectCards[0].id)
@@ -154,6 +155,8 @@ function Projects() {
           ))}
         </div>
       </div>
+
+      <GitHubFeed />
     </section>
   )
 }

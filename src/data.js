@@ -105,7 +105,7 @@ export const projectCards = [
     stack: ['React 18', 'Vite', 'JavaScript', 'CSS', 'Vitest'],
     demonstrates: [
       'Hardware-aware matching engine that respects pin counts and board features, not just parts owned',
-      'Pure logic modules, matching, buy-next optimizer, URL state, isolated from the UI and unit-tested',
+      'Pure logic modules (matching, buy-next optimizer, URL state) isolated from the UI and unit-tested',
       'Shareable URLs, board and parts encoded in the query string, validated on load with graceful fallback',
     ],
     availability: ['Live demo', 'Public repo'],

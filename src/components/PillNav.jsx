@@ -32,7 +32,6 @@ function PillNav({ items, activeHref, onSelect }) {
           <a
             key={item.href}
             href={item.href}
-            data-href={item.href}
             className={`pill-link${activeHref === item.href ? ' active' : ''}${item.href === '#contact' ? ' pill-link-contact' : ''}`}
             aria-current={activeHref === item.href ? 'page' : undefined}
             onMouseEnter={handleMouseEnter}
